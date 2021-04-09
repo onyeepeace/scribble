@@ -71,21 +71,34 @@ const SingleNote = () => {
 
   return (
     <div className={singleNoteStyles.container}>
-      <div className={singleNoteStyles.content}>
+      <div className={singleNoteStyles.main}>
         {!isLoading && (
           <>
-            <h1>{noteData.title}</h1>
-            <h2>{noteData.author}</h2>
-            <p>{noteData.content}</p>
-            <button onClick={editNote}>Edit</button>
-            <button
-              onClick={() => {
-                deleteNote(noteData.key);
-              }}
-            >
-              Delete
-            </button>
-            <Link to="/notes">Back to all notes</Link>
+            <h2 className={singleNoteStyles.heading}>
+              title:
+              <br />
+              <span className={singleNoteStyles.title}>{noteData.title}</span>
+            </h2>
+            <h2 className={singleNoteStyles.heading}>
+              author: <br />
+              <span className={singleNoteStyles.author}>{noteData.author}</span>
+            </h2>
+            <p className={singleNoteStyles.content}>{noteData.content}</p>
+            <div className={singleNoteStyles.action_btns}>
+              <button onClick={editNote}>Edit</button>
+              <button
+                onClick={() => {
+                  deleteNote(noteData.key);
+                }}
+              >
+                Delete
+              </button>
+            </div>
+            <p>
+              <Link to="/notes" className={singleNoteStyles.backlink}>
+                Back to all notes
+              </Link>
+            </p>
           </>
         )}
         {status && (

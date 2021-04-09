@@ -39,7 +39,9 @@ const NotesPage = () => {
           {allNotes.map((notes) => (
             <div className={notesStyle.notes}>
               <div key={notes.key}>
-                <h2>Title: {notes.title}</h2>
+                <h2 className={notesStyle.heading}>
+                  Title: <span className={notesStyle.title}>{notes.title}</span>
+                </h2>
                 <p>{notes.content}</p>
                 <Link to={`/note/${notes.key}`}>
                   <button>Read</button>

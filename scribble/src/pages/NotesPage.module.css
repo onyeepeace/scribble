@@ -27,6 +27,23 @@
   box-shadow: inset -2px -3px 4px 0px #93a5be;
 }
 
+.heading {
+  font-size: 0.8rem;
+  color: #93a5be;
+  text-transform: capitalize;
+  text-align: start;
+}
+
+.title {
+  display: inline-block;
+  font-size: 1.2rem;
+  text-transform: lowercase;
+}
+
+.title::first-letter {
+  text-transform: capitalize;
+}
+
 .notes p {
   margin: 1rem 0;
   width: auto;
@@ -62,5 +79,13 @@
   .note_container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .heading {
+    font-size: 1.1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
   }
 }

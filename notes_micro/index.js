@@ -1,10 +1,12 @@
 require("dotenv").config();
+const cors = require("cors");
 const express = require("express");
 const app = express(); // instantiate express
 const { Deta } = require("deta");
 const deta = Deta(process.env.NOTES_PROJECT_KEY); // configure your Deta project
 const notes = deta.Base("notes"); // access your DB
 
+app.use(cors());
 app.use(express.json()); // for parsing application/json bodies
 
 console.log("hello");
