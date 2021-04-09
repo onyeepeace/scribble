@@ -29,19 +29,25 @@
 
 .heading {
   font-size: 0.8rem;
-  color: #93a5be;
-  text-transform: capitalize;
   text-align: start;
 }
 
 .title {
-  display: inline-block;
   font-size: 1.2rem;
-  text-transform: lowercase;
-}
-
-.title::first-letter {
+  /* text-transform: lowercase; */
+  margin: 0.5rem 0;
+  width: auto;
+  text-align: start;
+  overflow: hidden;
+  max-height: 5.5rem;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
   text-transform: capitalize;
+  color: #93a5be;
 }
 
 .notes p {

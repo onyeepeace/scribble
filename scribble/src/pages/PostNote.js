@@ -24,12 +24,10 @@ const PostNote = () => {
       axios
         .post("http://localhost:4000/post", values, {})
         .then((res) => {
-          console.log(`Status: ${res.status}`);
-          console.log(`Body: ${JSON.stringify(res.data)}`);
           return res.data;
         })
         .catch((err) => {
-          console.error(err);
+          return err;
         });
       setTitle("");
       setAuthor("");

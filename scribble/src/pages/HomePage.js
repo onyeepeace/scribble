@@ -9,16 +9,12 @@ const HomePage = () => {
         <p>Put all your weird thoughts in one place</p>
         <p>PS: It's okay to be weird!...everyone is 😉</p>
         <div className={homeStyles.cta}>
-          <button>
-            <Link to="/post" className={homeStyles.post}>
-              Start here
-            </Link>
-          </button>
-          <button>
-            <Link to="/notes" className={homeStyles.notes}>
-              See all notes
-            </Link>
-          </button>
+          <Link to="/post" className={homeStyles.post}>
+            <button>Start here</button>
+          </Link>
+          <Link to="/notes" className={homeStyles.notes}>
+            <button>See all notes</button>
+          </Link>
         </div>
       </main>
     </div>

@@ -9,8 +9,6 @@ const notes = deta.Base("notes"); // access your DB
 app.use(cors());
 app.use(express.json()); // for parsing application/json bodies
 
-console.log("hello");
-
 app.listen(4000, (err) => {
   if (err) console.log(err);
   console.log("server listening on port 4000");
@@ -46,7 +44,7 @@ app.get("/notes", async (req, res) => {
 });
 
 // updating a single note
-app.put("/:id", async (req, res) => {
+app.put("/notes/:id", async (req, res) => {
   const { id } = req.params;
   const { title, author, content } = req.body;
   const toPut = { key: id, title, author, content };
@@ -55,7 +53,7 @@ app.put("/:id", async (req, res) => {
 });
 
 // deleting a single note
-app.delete("/:id", async (req, res) => {
+app.delete("/notes/:id", async (req, res) => {
   const { id } = req.params;
   await notes.delete(id);
   res.json({ message: "deleted" });

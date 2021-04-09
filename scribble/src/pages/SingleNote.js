@@ -13,14 +13,6 @@ const SingleNote = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
-  //   const key = title;
-
-  const values = {
-    title,
-    author,
-    content,
-    // key,
-  };
 
   const { notesKey } = useParams();
   let history = useHistory();
@@ -29,42 +21,48 @@ const SingleNote = () => {
     axios
       .get(`http://localhost:4000/notes/${notesKey}`)
       .then((res) => {
-        console.log(res);
         setNoteData(res.data);
         setIsLoading(false);
         return res.data;
       })
       .catch((error) => {
-        console.log(error);
+        return error;
       });
   }, [notesKey]);
 
   const editNote = () => {
-    // history.push("/edit");
     setStatus(true);
   };
 
   const handleEdit = (key) => {
-    axios
-      .put(`http://localhost:4000/notes/${key}`, values, {})
-      .then((res) => {
-        console.log(`Status: ${res.status}`);
-        console.log(`Body: ${JSON.stringify(res.data)}`);
-        return res.data;
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    if (!title || !author || !content) {
+      alert("Fill out all fields");
+    } else {
+      const values = {
+        title,
+        author,
+        content,
+      };
+
+      axios
+        .put(`http://localhost:4000/notes/${key}`, values, {})
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          return err;
+        });
+    }
   };
 
   const deleteNote = (key) => {
     axios
       .delete(`http://localhost:4000/notes/${key}`)
       .then((res) => {
-        console.log(res);
+        return res;
       })
       .catch((error) => {
-        console.log(error);
+        return error;
       });
     history.push("/notes");
   };
@@ -111,8 +109,18 @@ const SingleNote = () => {
               editContent={content}
               setEditContent={setContent}
             />
-            <button onClick={() => setStatus(false)}>cancel edit</button>
-            <button onClick={() => handleEdit(noteData.key)}>Save note</button>
+            <div className={singleNoteStyles.action_btns}>
+              <button onClick={() => setStatus(false)}>cancel edit</button>
+              <button
+                onClick={() => {
+                  handleEdit(noteData.key);
+                  alert("Edit saved");
+                  history.push(`/notes`);
+                }}
+              >
+                Save note
+              </button>
+            </div>
           </>
         )}
       </div>
