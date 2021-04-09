@@ -1,0 +1,43 @@
+.container {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.backlink {
+  font-size: 1rem;
+  text-decoration: none;
+  margin-bottom: 5rem;
+}
+
+.backlink:hover {
+  text-decoration: underline;
+}
+
+.form > * {
+  display: block;
+  width: 100%;
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid #fff;
+}
+
+.form > input::placeholder,
+textarea::placeholder {
+  text-transform: capitalize;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 60vw;
+  }
+
+  .backlink {
+    font-size: 1.5rem;
+  }
+
+  .form > * {
+    margin: 3rem 0;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+  }
+}

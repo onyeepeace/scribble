@@ -1,0 +1,51 @@
+.container {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  color: #93a5be;
+}
+
+.content > p {
+  padding: 1rem 0;
+  /* color: #748396; */
+}
+
+.cta > button {
+  /* display: block; */
+  margin: 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid #93a5be;
+  border-radius: 4px;
+}
+
+.post,
+.notes {
+  text-decoration: none;
+  color: #93a5be;
+}
+
+@media screen and (min-width: 768px) {
+  .content h1 {
+    font-size: 5rem;
+  }
+
+  .content p {
+    font-size: 1.5rem;
+  }
+
+  .cta > button {
+    margin: 2rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,66 @@
+.container {
+  width: 80vw;
+  margin: 2rem auto;
+}
+
+.backlink {
+  font-size: 1rem;
+  text-decoration: none;
+  margin-bottom: 5rem;
+}
+
+.backlink:hover {
+  text-decoration: underline;
+}
+
+.notes {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  height: 250px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 3px 4px #93a5be;
+  box-shadow: inset -2px -3px 4px 0px #93a5be;
+}
+
+.notes p {
+  margin: 1rem 0;
+  width: auto;
+  text-align: start;
+  overflow: hidden;
+  max-height: 5.5rem;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+}
+
+.notes button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid #93a5be;
+}
+
+@media screen and (min-width: 768px) {
+  .backlink {
+    font-size: 1.5rem;
+  }
+
+  .note_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .note_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
